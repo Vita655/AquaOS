@@ -23,16 +23,11 @@ cp -a "$ROOT/config" "$WORK/config"
 cd "$WORK"
 
 lb config \
-  --distribution bookworm \
-  --architectures "$ARCH" \
-  --binary-images iso-hybrid \
-  --archive-areas "main contrib non-free non-free-firmware" \
-  --debian-installer live \
-  --bootappend-live "boot=live components quiet splash username=aquaos hostname=aquaos" \
-  --iso-application "AquaOS" \
-  --iso-publisher "AquaOS Project" \
-  --iso-volume "AQUAOS_LIVE" \
-  --apt-recommends true
+  --mirror-bootstrap "https://deb.debian.org/debian" \
+  --mirror-chroot "https://deb.debian.org/debian" \
+  --mirror-chroot-security "https://security.debian.org/debian-security" \
+  --mirror-binary "https://deb.debian.org/debian" \
+  --mirror-binary-security "https://security.debian.org/debian-security" \
 
 lb build
 ISO="$(find . -maxdepth 1 -type f -name '*.iso' -print -quit)"
