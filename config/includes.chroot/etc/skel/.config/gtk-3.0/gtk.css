@@ -1,0 +1,39 @@
+/* AquaOS GTK3 theme foundation — original CSS, no Apple assets. */
+@define-color aqua_accent #168de2;
+@define-color aqua_text #172536;
+
+window, .background {
+  background-color: #eaf2fa;
+  color: @aqua_text;
+}
+
+headerbar, .titlebar {
+  background-image: linear-gradient(to bottom,
+    rgba(255,255,255,.94), rgba(232,242,252,.86));
+  border-bottom: 1px solid rgba(90,130,170,.22);
+  box-shadow: 0 1px 10px rgba(40,75,110,.10);
+  color: @aqua_text;
+}
+
+button {
+  border-radius: 9px;
+  border: 1px solid rgba(100,145,190,.28);
+  background-image: linear-gradient(to bottom,
+    rgba(255,255,255,.96), rgba(225,239,252,.90));
+  color: @aqua_text;
+}
+
+button:hover {
+  background-image: linear-gradient(to bottom,
+    #fff, rgba(205,230,250,.96));
+}
+
+entry, textview, treeview.view, .view {
+  background-color: rgba(255,255,255,.92);
+  color: @aqua_text;
+}
+
+selection, *:selected {
+  background-color: alpha(@aqua_accent,.28);
+  color: @aqua_text;
+}

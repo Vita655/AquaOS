@@ -1,0 +1,41 @@
+name: Build AquaOS ISOs
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    name: Build ${{ matrix.arch }} ISO
+    runs-on: ubuntu-24.04
+    strategy:
+      fail-fast: false
+      matrix:
+        arch: [amd64, i386]
+    steps:
+      - name: Check out AquaOS
+        uses: actions/checkout@v4
+
+      - name: Install live-build tools
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y \
+            live-build debootstrap xorriso squashfs-tools \
+            grub-pc-bin grub-efi-amd64-bin mtools dosfstools \
+            qemu-user-static binfmt-support
+
+      - name: Build ISO
+        run: sudo bash build/build-iso.sh "${{ matrix.arch }}"
+
+      - name: Upload ISO and checksum
+        uses: actions/upload-artifact@v4
+        with:
+          name: AquaOS-${{ matrix.arch }}-ISO
+          path: |
+            dist/AquaOS-${{ matrix.arch }}.iso
+            dist/AquaOS-${{ matrix.arch }}.iso.sha256
+          if-no-files-found: error
+          compression-level: 0
+          retention-days: 14

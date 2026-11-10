@@ -1,0 +1,39 @@
+# Desktop session and display manager
+xfce4
+xfce4-goodies
+lightdm
+lightdm-gtk-greeter
+
+# File management and desktop utilities
+thunar
+thunar-volman
+thunar-archive-plugin
+tumbler
+ristretto
+mousepad
+xfce4-terminal
+xfce4-taskmanager
+xfce4-screenshooter
+
+# Archives and document/media previews
+xarchiver
+p7zip-full
+zip
+unzip
+unrar-free
+ffmpegthumbnailer
+poppler-utils
+evince
+
+# Appearance, fonts, networking and basics
+breeze-cursor-theme
+papirus-icon-theme
+fonts-dejavu
+fonts-noto
+network-manager
+network-manager-gnome
+sudo
+curl
+wget
+ca-certificates
+vim-tiny
