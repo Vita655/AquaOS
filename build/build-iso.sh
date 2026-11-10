@@ -23,6 +23,8 @@ cp -a "$ROOT/config" "$WORK/config"
 cd "$WORK"
 
 lb config \
+  --ignore-system-defaults \
+  --mode debian \
   --distribution bookworm \
   --architectures "$ARCH" \
   --mirror-bootstrap "https://deb.debian.org/debian" \
