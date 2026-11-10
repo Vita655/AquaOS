@@ -23,6 +23,8 @@ cp -a "$ROOT/config" "$WORK/config"
 cd "$WORK"
 
 lb config \
+  --distribution bookworm \
+  --architectures "$ARCH" \
   --mirror-bootstrap "https://deb.debian.org/debian" \
   --mirror-chroot "https://deb.debian.org/debian" \
   --mirror-chroot-security "https://security.debian.org/debian-security" \
